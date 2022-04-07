@@ -22,12 +22,14 @@ const Search = () => {
   }
   return (
     <Grid>
-      {searched.map((item, index)=>{
+      {searched.map(item=>{
         return(
-          <Card key={`item-${index}`}>
+          <Card key={item.id}>
+            <Link to={'/recipe/' + item.id}>
              <Overlay/>
             <img src={item.image} alt={item.title} />
             <p>{item.title}</p>
+            </Link>
           </Card>
         )
       })}

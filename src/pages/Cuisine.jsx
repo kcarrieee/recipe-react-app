@@ -22,12 +22,14 @@ const Cuisine = () => {
   }
   return (
     <Grid>
-      {cuisine.map((item,index)=>{
+      {cuisine.map(item=>{
         return (
-          <Card key={`key-${index}`}>
+          <Card key={item.id}>
+             <Link to={'/recipe/' + item.id}>
              <Overlay/>
             <img src={item.image} alt={item.title} />
             <p>{item.title}</p>
+            </Link>
           </Card>
         )
       })}
