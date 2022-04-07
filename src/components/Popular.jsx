@@ -31,11 +31,21 @@ const Popular = () => {
             <Wrapper> 
               <h3>Trending recipes</h3>
               <Splide options={{ 
-                perPage:4,
+                perPage:4,breakpoints:{
+                  600:{
+                    perPage:1,
+                  },
+                  800:{
+                    perPage:2,
+                  },
+                  1100:{
+                    perPage:3,
+                  },
+                },
                 arrows:false,
                 pagination:false,
                 drag:'free',
-                gap:'2rem',
+                gap:'1rem',
                 }}>
               {popular.map((recipe)=>{
 
@@ -63,14 +73,14 @@ const Wrapper= styled.div`
 `
 const Card = styled.div`
   min-height:20rem;
-  border-radius:2rem;
+  border-radius:1.25rem;
   overflow:hidden;
   position:relative;
 
   p{
     position:absolute;
     z-index:5;
-    bottom:20px;
+    bottom:10%;
     left:50%;
     transform:translateX(-50%);
     font-size:1rem;
@@ -93,6 +103,6 @@ const Overlay = styled.div`
   position:absolute;
   width:100%;
   height:100%;
-  background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5))
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%)
 `
 export default Popular

@@ -8,6 +8,16 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   
+  
 }
 
+.App{
+  max-width: 1203px;
+  width: 90%;
+  margin: 0 auto;
+}
 
+h3{
+  font-size: clamp(1rem, 4vw, 1.6rem);
+  margin-bottom: 1.2em;
+}

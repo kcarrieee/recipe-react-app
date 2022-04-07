@@ -13,6 +13,7 @@ const Vegan = () => {
 
   const getVegetarian = async ()=>{
     const check = localStorage.getItem('Vegetarian');
+    
     if(check){
       setVegetarian(JSON.parse(check))
     }else{
@@ -21,8 +22,10 @@ const Vegan = () => {
       const data = await api.json();
       localStorage.setItem('Vegetarian', JSON.stringify(data.recipes))
       setVegetarian(data.recipes)
+      
 
     }
+    
    
   }
 
@@ -32,11 +35,19 @@ const Vegan = () => {
             <Wrapper> 
               <h3>Vegeterian recipes</h3>
               <Splide options={{ 
-                perPage:4,
+                perPage:3,
+                breakpoints:{
+                  600:{
+                    perPage:1,
+                  },
+                  1000:{
+                    perPage:2,
+                  },
+                },
                 arrows:false,
                 pagination:false,
                 drag:'free',
-                gap:'2rem',
+                gap:'1rem',
                 }}>
               {vegetarian.map((recipe)=>{
 
@@ -60,7 +71,7 @@ const Vegan = () => {
 
 
 const Wrapper= styled.div`
-  margin: 4rem 0rem;
+  margin: 2rem 0rem;
 `
 const Card = styled.div`
   min-height:20rem;
@@ -71,7 +82,7 @@ const Card = styled.div`
   p{
     position:absolute;
     z-index:5;
-    bottom:20px;
+    bottom:10%;
     left:50%;
     transform:translateX(-50%);
     font-size:1rem;
