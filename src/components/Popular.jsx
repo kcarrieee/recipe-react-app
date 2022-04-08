@@ -102,6 +102,7 @@ const Card = styled.div`
   }
 `
 const Overlay = styled.div`
+  border-radius:1.7rem;
   z-index: 3;
   position:absolute;
   width:100%;

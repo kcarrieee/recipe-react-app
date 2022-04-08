@@ -21,7 +21,13 @@ const Cuisine = () => {
 
   }
   return (
-    <Grid>
+    <Grid
+       animate={{opacity:1}}
+       initial={{opacity:0}}
+       exit={{opacity:0}}
+       transition={{duration: 0.4}}
+    
+    >
       {cuisine.map(item=>{
         return (
           <Card key={item.id}>
@@ -37,7 +43,7 @@ const Cuisine = () => {
     </Grid>
   )
 }
-const Grid = styled.div`
+const Grid = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap:1rem;
@@ -71,6 +77,7 @@ const Card = styled.div`
   }
 `
 const Overlay = styled.div`
+  border-radius:1.7rem;
   z-index: 3;
   position:absolute;
   width:100%;

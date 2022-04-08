@@ -106,6 +106,7 @@ const Card = styled.div`
 const Overlay = styled.div`
   z-index: 3;
   position:absolute;
+  border-radius:1.7rem;
   width:100%;
   height:100%;
   background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5))

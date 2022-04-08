@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState,useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Recipe = () => {
   const [details, setDetails] = useState({});
@@ -19,7 +20,12 @@ const Recipe = () => {
     
   }
   return (
-    <DetailsWrapper>
+    <DetailsWrapper
+      animate={{opacity:1}}
+       initial={{opacity:0}}
+       exit={{opacity:0}}
+       transition={{duration: 0.4}}
+     >
       <ImageWrapper>
         <h2>{details.title}</h2>
         <img src={details.image} alt={details.title} />
@@ -58,7 +64,7 @@ const Recipe = () => {
 
 
 
-const DetailsWrapper = styled.div`
+const DetailsWrapper = styled(motion.div)`
   display:grid;
   grid-template-columns:1fr 1fr;
   margin-top:2rem;
