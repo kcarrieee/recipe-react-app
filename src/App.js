@@ -4,10 +4,14 @@ import {BrowserRouter} from 'react-router-dom'
 import SearchInput from "./components/SearchInput";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+
 
 
 function App() {
   return (
+    
     <div className="App">
       <BrowserRouter>
       <Navbar/>
@@ -15,8 +19,12 @@ function App() {
       <SearchInput/>
       <Categories/>
       <Pages/>
+      <Footer/>
      </BrowserRouter>
     </div>
+     
+     
+    
   );
 }
 
