@@ -10,7 +10,10 @@ body {
   
   
 }
-
+.logo-link{
+  text-decoration: none;
+  color: #000;
+}
 .App{
   max-width: 1203px;
   width: 90%;

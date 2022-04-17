@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import menu from '../assets/menu.svg'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <NavWrapper>
-        <LogoWrapper>Chef.io</LogoWrapper>
+       <Link to={"/"} className="logo-link"> <LogoWrapper>Chef.io</LogoWrapper></Link>
         <NavItems>
             <ul>
                 <li>About us</li>

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 
 const Recipe = () => {
   const [details, setDetails] = useState({});
+  const [loading, setLoading] = useState(false);
 
   let params = useParams();
 
@@ -16,7 +17,10 @@ const Recipe = () => {
   const fetchDetailsRecipe = async ()=>{
     const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API}`)
     const dataDetails = await data.json();
+    
     setDetails(dataDetails);
+    setLoading(true);
+    
     
   }
   return (
@@ -26,7 +30,9 @@ const Recipe = () => {
        exit={{opacity:0}}
        transition={{duration: 0.4}}
      >
-      <ImageWrapper>
+       {loading ? ( 
+         <>
+       <ImageWrapper>
         <h2>{details.title}</h2>
         <img src={details.image} alt={details.title} />
       </ImageWrapper>
@@ -58,11 +64,37 @@ const Recipe = () => {
         <p dangerouslySetInnerHTML={{__html: details.instructions}}></p>
         </div>
       </div>
+      </>) : <Spinner>
+          <div></div>
+          </Spinner>}
+     
     </DetailsWrapper>
   )
 }
 
+const Spinner = styled.div`
+  width:90vw;
+  height:600px;
+  display:grid;
+  place-content:center;
+  div{
+  width: 50px;
+  height: 50px;
+  border: 3px solid #4848484c;
+  border-radius: 50%;
+  border-top-color: #000000;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
 
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+
+`
 
 const DetailsWrapper = styled(motion.div)`
   display:grid;

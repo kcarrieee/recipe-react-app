@@ -10,7 +10,7 @@ const Hero = () => {
         <a href="/">Join discord</a>
         <img src={ArrowImage} alt="arrow" />
         </div>
-        <img src={HeroImage} alt="cooking image" />
+        <img src={HeroImage} alt="food" />
     </HeroWrapper>
   )
 }
